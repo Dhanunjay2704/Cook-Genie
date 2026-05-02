@@ -1,0 +1,27 @@
+{
+    "watch": [
+        "*.js",
+        "config/",
+        "routes/",
+        "controllers/",
+        "middleware/"
+    ],
+    "ignore": [
+        "node_modules/",
+        "uploads/",
+        "*.log",
+        ".env",
+        "test/"
+    ],
+    "ext": "js,json",
+    "delay": 1000,
+    "verbose": false,
+    "restartable": "rs",
+    "colours": true,
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "legacyWatch": false,
+    "exec": "node index.js",
+    "signal": "SIGINT"
+}

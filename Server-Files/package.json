@@ -1,0 +1,47 @@
+{
+  "name": "ai-recipe-server",
+  "version": "1.0.0",
+  "description": "AI Recipe Generator Backend - Express + MongoDB + Gemini",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "debug": "cross-env NODE_ENV=development nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"No linter configured\" && exit 0"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "mongoose",
+    "ai",
+    "recipes",
+    "gemini"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "groq-sdk": "^1.1.2",
+    "mongoose": "^8.8.3",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.7"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules",
+      "uploads/*",
+      "*.log"
+    ],
+    "delay": 500
+  }
+}
