@@ -201,7 +201,7 @@ const startServer = async () => {
     // Start HTTP server (only once)
     console.log(`🌐 Starting server on port ${selectedPort}...`);
 
-    server = app.listen(selectedPort, '127.0.0.1', () => {
+    server = app.listen(selectedPort, () => {
       console.log(`✅ Server successfully started!`);
       console.log(`🌐 Health check: http://localhost:${selectedPort}/api/health`);
       console.log(`📚 API endpoints: http://localhost:${selectedPort}/api/recipes`);
