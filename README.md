@@ -153,6 +153,10 @@ Server-Files/
 - Database connection status tracking
 - Automatic retry logic for failed connections
 
+## 🌍 Live Demo
+
+- Frontend deployed: https://cook-genie-orcin.vercel.app/recipe
+
 ## 🚀 Deployment
 
 For production deployment:
