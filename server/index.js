@@ -29,6 +29,8 @@ const validateEnvironment = () => {
   console.log('✅ Environment variables validated');
 };
 
+const normalizeOrigin = (origin = '') => origin.replace(/\/+$|\s+/g, '');
+
 /**
  * Check if a port is available
  */
@@ -77,10 +79,18 @@ const findAvailablePort = async (startPort) => {
  */
 const setupMiddleware = () => {
   // CORS configuration
+  const allowedOrigins = process.env.NODE_ENV === 'production'
+    ? [normalizeOrigin(process.env.FRONTEND_URL)]
+    : ['http://localhost:3000', 'http://localhost:5173'];
+
   app.use(cors({
-    origin: process.env.NODE_ENV === 'production'
-      ? process.env.FRONTEND_URL
-      : ['http://localhost:3000', 'http://localhost:5173'],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      const cleanedOrigin = normalizeOrigin(origin);
+      return allowedOrigins.includes(cleanedOrigin)
+        ? callback(null, true)
+        : callback(new Error('Not allowed by CORS'), false);
+    },
     credentials: true
   }));
 
